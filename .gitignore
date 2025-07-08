@@ -66,3 +66,12 @@ uploads/
 
 # ESLint
 .eslintcache
+
+# Google service account keys
+config/google-service-account.json
+google-service-account.json
+*.json.key
+
+# Generated reports
+*.xlsx
+*.csv

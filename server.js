@@ -17,6 +17,7 @@ const developmentAreaRoutes = require('./routes/developmentAreas');
 const venueHistoryRoutes = require('./routes/venueHistories');
 const schoolRoutes = require('./routes/schools');
 const dashboardRoutes = require('./routes/dashboard');
+const googleDriveRoutes = require('./routes/googleDrive');
 
 // アプリケーションの初期化
 const app = express();
@@ -60,6 +61,7 @@ app.use('/api/development-areas', developmentAreaRoutes);
 app.use('/api/venue-histories', venueHistoryRoutes);
 app.use('/api/schools', schoolRoutes);
 app.use('/api/dashboard', dashboardRoutes);
+app.use('/api/google-drive', googleDriveRoutes);
 
 // ヘルスチェック
 app.get('/api/health', (req, res) => {
@@ -164,6 +166,19 @@ cron.schedule('0 0 1 * *', async () => {
         console.log('Monthly report generation completed.');
     } catch (error) {
         console.error('Error in monthly report generation:', error);
+    }
+});
+
+// 自動化タスク（Googleドライブ月次レポート） - 毎月1日午前2時に実行
+cron.schedule('0 2 1 * *', async () => {
+    try {
+        console.log('Google Drive monthly report generation started...');
+        const googleDriveService = require('./services/googleDriveService');
+        await googleDriveService.initialize();
+        await googleDriveService.generateMonthlyReport();
+        console.log('Google Drive monthly report generation completed.');
+    } catch (error) {
+        console.error('Error in Google Drive monthly report generation:', error);
     }
 });
 
