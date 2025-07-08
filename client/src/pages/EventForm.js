@@ -7,11 +7,100 @@ import {
     FaMapMarkerAlt,
     FaUsers,
     FaClipboard,
-    FaExclamationTriangle
+    FaExclamationTriangle,
+    FaSearch
 } from 'react-icons/fa';
 import { eventApi, municipalityApi, developmentAreaApi, venueHistoryApi, schoolApi } from '../services/api';
 import { toast } from 'react-toastify';
 import './EventForm.css';
+
+// 検索付きセレクトボックスコンポーネント
+const SearchableSelect = ({
+    options,
+    value,
+    onChange,
+    placeholder,
+    error,
+    label,
+    getOptionLabel,
+    getOptionValue,
+    fieldName
+}) => {
+    const [isOpen, setIsOpen] = useState(false);
+    const [searchTerm, setSearchTerm] = useState('');
+    const [filteredOptions, setFilteredOptions] = useState(options);
+
+    useEffect(() => {
+        const filtered = options.filter(option =>
+            getOptionLabel(option).toLowerCase().includes(searchTerm.toLowerCase())
+        );
+        setFilteredOptions(filtered);
+    }, [options, searchTerm, getOptionLabel]);
+
+    const selectedOption = options.find(option => getOptionValue(option) === value);
+
+    const handleSelect = (option) => {
+        onChange({ target: { name: fieldName, value: getOptionValue(option) } });
+        setSearchTerm('');
+        setIsOpen(false);
+    };
+
+    return (
+        <div className="searchable-select-container">
+            <label>{label}</label>
+            <div className={`searchable-select ${error ? 'error' : ''}`}>
+                <div
+                    className="select-display"
+                    onClick={() => setIsOpen(!isOpen)}
+                >
+                    {selectedOption ? (
+                        <span>{getOptionLabel(selectedOption)}</span>
+                    ) : (
+                        <span className="placeholder">{placeholder}</span>
+                    )}
+                    <span className="select-arrow">▼</span>
+                </div>
+
+                {isOpen && (
+                    <div className="select-dropdown">
+                        <div className="search-input-container">
+                            <FaSearch className="search-icon" />
+                            <input
+                                type="text"
+                                placeholder="検索..."
+                                value={searchTerm}
+                                onChange={(e) => setSearchTerm(e.target.value)}
+                                className="search-input"
+                                onClick={(e) => e.stopPropagation()}
+                            />
+                        </div>
+                        <div className="options-list">
+                            {filteredOptions.length > 0 ? (
+                                filteredOptions.map((option) => (
+                                    <div
+                                        key={getOptionValue(option)}
+                                        className="option-item"
+                                        onClick={() => handleSelect(option)}
+                                    >
+                                        {getOptionLabel(option)}
+                                    </div>
+                                ))
+                            ) : (
+                                <div className="no-options">該当する項目がありません</div>
+                            )}
+                        </div>
+                    </div>
+                )}
+            </div>
+            {error && (
+                <span className="error-message">
+                    <FaExclamationTriangle />
+                    {error}
+                </span>
+            )}
+        </div>
+    );
+};
 
 const EventForm = () => {
     const { id } = useParams();
@@ -52,11 +141,14 @@ const EventForm = () => {
     const loadSelectOptions = async () => {
         try {
             const [municipalitiesRes, developmentAreasRes, venueHistoriesRes, schoolsRes] = await Promise.all([
-                municipalityApi.getAll(),
-                developmentAreaApi.getAll(),
+                municipalityApi.getAllForSelect(),
+                developmentAreaApi.getAllForSelect(),
                 venueHistoryApi.getAll(),
                 schoolApi.getAll()
             ]);
+            // デバッグ用ログ
+            console.log('municipalitiesRes', municipalitiesRes.data);
+            console.log('developmentAreasRes', developmentAreasRes.data);
 
             setMunicipalities(municipalitiesRes.data.municipalities || []);
             setDevelopmentAreas(developmentAreasRes.data.developmentAreas || []);
@@ -342,28 +434,17 @@ const EventForm = () => {
                             開催地情報
                         </h2>
 
-                        <div className="form-group">
-                            <label>開催地 *</label>
-                            <select
-                                name="municipalityId"
-                                value={formData.municipalityId}
-                                onChange={handleInputChange}
-                                className={`form-control ${validationErrors.municipalityId ? 'error' : ''}`}
-                            >
-                                <option value="">選択してください</option>
-                                {municipalities.map(municipality => (
-                                    <option key={municipality.id} value={municipality.id}>
-                                        {municipality.name} ({municipality.prefectureName})
-                                    </option>
-                                ))}
-                            </select>
-                            {validationErrors.municipalityId && (
-                                <span className="error-message">
-                                    <FaExclamationTriangle />
-                                    {validationErrors.municipalityId}
-                                </span>
-                            )}
-                        </div>
+                        <SearchableSelect
+                            options={municipalities}
+                            value={formData.municipalityId}
+                            onChange={handleInputChange}
+                            placeholder="開催地を選択"
+                            error={validationErrors.municipalityId}
+                            label="開催地 *"
+                            getOptionLabel={municipality => `${municipality.name} (${municipality.prefectureName})`}
+                            getOptionValue={municipality => municipality.id}
+                            fieldName="municipalityId"
+                        />
 
                         <div className="form-group">
                             <label>会場 *</label>
@@ -383,22 +464,17 @@ const EventForm = () => {
                             )}
                         </div>
 
-                        <div className="form-group">
-                            <label>開拓地域</label>
-                            <select
-                                name="developmentAreaId"
-                                value={formData.developmentAreaId}
-                                onChange={handleInputChange}
-                                className="form-control"
-                            >
-                                <option value="">選択してください</option>
-                                {developmentAreas.map(area => (
-                                    <option key={area.id} value={area.id}>
-                                        {area.name}
-                                    </option>
-                                ))}
-                            </select>
-                        </div>
+                        <SearchableSelect
+                            options={developmentAreas}
+                            value={formData.developmentAreaId}
+                            onChange={handleInputChange}
+                            placeholder="開拓地域を選択"
+                            error={validationErrors.developmentAreaId}
+                            label="開拓地域"
+                            getOptionLabel={area => area.name}
+                            getOptionValue={area => area.id}
+                            fieldName="developmentAreaId"
+                        />
                     </div>
 
                     {/* 関連情報 */}

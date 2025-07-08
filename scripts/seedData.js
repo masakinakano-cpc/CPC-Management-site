@@ -6,30 +6,8 @@ const {
     VenueHistory,
     School
 } = require('../models');
-
-// 市区町村データ
-const municipalityData = [
-    { name: '新宿区', prefectureName: '東京都', regionName: '関東', populationCategory: '大', isActive: true },
-    { name: '渋谷区', prefectureName: '東京都', regionName: '関東', populationCategory: '大', isActive: true },
-    { name: '港区', prefectureName: '東京都', regionName: '関東', populationCategory: '大', isActive: true },
-    { name: '千代田区', prefectureName: '東京都', regionName: '関東', populationCategory: '大', isActive: true },
-    { name: '横浜市', prefectureName: '神奈川県', regionName: '関東', populationCategory: '大', isActive: true },
-    { name: '川崎市', prefectureName: '神奈川県', regionName: '関東', populationCategory: '大', isActive: true },
-    { name: '相模原市', prefectureName: '神奈川県', regionName: '関東', populationCategory: '中', isActive: true },
-    { name: '千葉市', prefectureName: '千葉県', regionName: '関東', populationCategory: '中', isActive: true },
-    { name: '船橋市', prefectureName: '千葉県', regionName: '関東', populationCategory: '中', isActive: true },
-    { name: 'さいたま市', prefectureName: '埼玉県', regionName: '関東', populationCategory: '大', isActive: true },
-    { name: '川口市', prefectureName: '埼玉県', regionName: '関東', populationCategory: '中', isActive: true },
-    { name: '大阪市', prefectureName: '大阪府', regionName: '関西', populationCategory: '大', isActive: true },
-    { name: '堺市', prefectureName: '大阪府', regionName: '関西', populationCategory: '大', isActive: true },
-    { name: '京都市', prefectureName: '京都府', regionName: '関西', populationCategory: '大', isActive: true },
-    { name: '神戸市', prefectureName: '兵庫県', regionName: '関西', populationCategory: '大', isActive: true },
-    { name: '名古屋市', prefectureName: '愛知県', regionName: '中部', populationCategory: '大', isActive: true },
-    { name: '豊田市', prefectureName: '愛知県', regionName: '中部', populationCategory: '中', isActive: true },
-    { name: '福岡市', prefectureName: '福岡県', regionName: '九州', populationCategory: '大', isActive: true },
-    { name: '北九州市', prefectureName: '福岡県', regionName: '九州', populationCategory: '大', isActive: true },
-    { name: '仙台市', prefectureName: '宮城県', regionName: '東北', populationCategory: '大', isActive: true }
-];
+const fs = require('fs');
+const path = require('path');
 
 // 開拓地域データ
 const developmentAreaData = [
@@ -259,7 +237,23 @@ const seedDatabase = async () => {
 
         // 市区町村データ挿入
         console.log('📍 市区町村データ挿入...');
-        const municipalities = await Municipality.bulkCreate(municipalityData);
+        const municipalitiesSeedPath = path.join(__dirname, '../seed/municipalities_seed.json');
+        let municipalityData = [];
+        try {
+            const raw = fs.readFileSync(municipalitiesSeedPath, 'utf-8');
+            const json = JSON.parse(raw);
+            // モデルのカラムに合わせて変換
+            municipalityData = json.map(item => ({
+                name: item.name,
+                prefectureName: item.prefectureName,
+                regionName: '', // 必要に応じて空文字や自動判定
+                populationCategory: '', // 必要に応じて空文字や自動判定
+                isActive: true
+            }));
+        } catch (err) {
+            console.error('市区町村seedデータの読み込みに失敗しました:', err);
+        }
+        const municipalities = await Municipality.bulkCreate(municipalityData, { ignoreDuplicates: true });
         console.log(`✅ ${municipalities.length}件の市区町村データを挿入しました`);
 
         // 開拓地域データ挿入

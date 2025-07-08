@@ -8,7 +8,7 @@ router.get('/', async (req, res) => {
     try {
         const {
             page = 1,
-            limit = 20,
+            limit = 10000, // デフォルトを10000に
             search,
             developmentStatus,
             isActive = true

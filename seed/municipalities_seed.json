@@ -1,0 +1,998 @@
+[
+    {
+        "prefectureName": "大阪府",
+        "name": "大阪市"
+    },
+    {
+        "prefectureName": "大阪府",
+        "name": "大阪市都島区"
+    },
+    {
+        "prefectureName": "大阪府",
+        "name": "大阪市福島区"
+    },
+    {
+        "prefectureName": "大阪府",
+        "name": "大阪市此花区"
+    },
+    {
+        "prefectureName": "大阪府",
+        "name": "大阪市西区"
+    },
+    {
+        "prefectureName": "大阪府",
+        "name": "大阪市港区"
+    },
+    {
+        "prefectureName": "大阪府",
+        "name": "大阪市大正区"
+    },
+    {
+        "prefectureName": "大阪府",
+        "name": "大阪市天王寺区"
+    },
+    {
+        "prefectureName": "大阪府",
+        "name": "大阪市浪速区"
+    },
+    {
+        "prefectureName": "大阪府",
+        "name": "大阪市西淀川区"
+    },
+    {
+        "prefectureName": "大阪府",
+        "name": "大阪市東淀川区"
+    },
+    {
+        "prefectureName": "大阪府",
+        "name": "大阪市東成区"
+    },
+    {
+        "prefectureName": "大阪府",
+        "name": "大阪市生野区"
+    },
+    {
+        "prefectureName": "大阪府",
+        "name": "大阪市旭区"
+    },
+    {
+        "prefectureName": "大阪府",
+        "name": "大阪市城東区"
+    },
+    {
+        "prefectureName": "大阪府",
+        "name": "大阪市阿倍野区"
+    },
+    {
+        "prefectureName": "大阪府",
+        "name": "大阪市住吉区"
+    },
+    {
+        "prefectureName": "大阪府",
+        "name": "大阪市東住吉区"
+    },
+    {
+        "prefectureName": "大阪府",
+        "name": "大阪市西成区"
+    },
+    {
+        "prefectureName": "大阪府",
+        "name": "大阪市淀川区"
+    },
+    {
+        "prefectureName": "大阪府",
+        "name": "大阪市鶴見区"
+    },
+    {
+        "prefectureName": "大阪府",
+        "name": "大阪市住之江区"
+    },
+    {
+        "prefectureName": "大阪府",
+        "name": "大阪市平野区"
+    },
+    {
+        "prefectureName": "大阪府",
+        "name": "大阪市北区"
+    },
+    {
+        "prefectureName": "大阪府",
+        "name": "大阪市中央区"
+    },
+    {
+        "prefectureName": "大阪府",
+        "name": "堺市"
+    },
+    {
+        "prefectureName": "大阪府",
+        "name": "堺市堺区"
+    },
+    {
+        "prefectureName": "大阪府",
+        "name": "堺市中区"
+    },
+    {
+        "prefectureName": "大阪府",
+        "name": "堺市東区"
+    },
+    {
+        "prefectureName": "大阪府",
+        "name": "堺市西区"
+    },
+    {
+        "prefectureName": "大阪府",
+        "name": "堺市南区"
+    },
+    {
+        "prefectureName": "大阪府",
+        "name": "堺市北区"
+    },
+    {
+        "prefectureName": "大阪府",
+        "name": "堺市美原区"
+    },
+    {
+        "prefectureName": "大阪府",
+        "name": "岸和田市"
+    },
+    {
+        "prefectureName": "大阪府",
+        "name": "豊中市"
+    },
+    {
+        "prefectureName": "大阪府",
+        "name": "池田市"
+    },
+    {
+        "prefectureName": "大阪府",
+        "name": "吹田市"
+    },
+    {
+        "prefectureName": "大阪府",
+        "name": "泉大津市"
+    },
+    {
+        "prefectureName": "大阪府",
+        "name": "高槻市"
+    },
+    {
+        "prefectureName": "大阪府",
+        "name": "貝塚市"
+    },
+    {
+        "prefectureName": "大阪府",
+        "name": "守口市"
+    },
+    {
+        "prefectureName": "大阪府",
+        "name": "枚方市"
+    },
+    {
+        "prefectureName": "大阪府",
+        "name": "茨木市"
+    },
+    {
+        "prefectureName": "大阪府",
+        "name": "八尾市"
+    },
+    {
+        "prefectureName": "大阪府",
+        "name": "泉佐野市"
+    },
+    {
+        "prefectureName": "大阪府",
+        "name": "富田林市"
+    },
+    {
+        "prefectureName": "大阪府",
+        "name": "寝屋川市"
+    },
+    {
+        "prefectureName": "大阪府",
+        "name": "河内長野市"
+    },
+    {
+        "prefectureName": "大阪府",
+        "name": "松原市"
+    },
+    {
+        "prefectureName": "大阪府",
+        "name": "大東市"
+    },
+    {
+        "prefectureName": "大阪府",
+        "name": "和泉市"
+    },
+    {
+        "prefectureName": "大阪府",
+        "name": "箕面市"
+    },
+    {
+        "prefectureName": "大阪府",
+        "name": "柏原市"
+    },
+    {
+        "prefectureName": "大阪府",
+        "name": "羽曳野市"
+    },
+    {
+        "prefectureName": "大阪府",
+        "name": "門真市"
+    },
+    {
+        "prefectureName": "大阪府",
+        "name": "摂津市"
+    },
+    {
+        "prefectureName": "大阪府",
+        "name": "高石市"
+    },
+    {
+        "prefectureName": "大阪府",
+        "name": "藤井寺市"
+    },
+    {
+        "prefectureName": "大阪府",
+        "name": "東大阪市"
+    },
+    {
+        "prefectureName": "大阪府",
+        "name": "泉南市"
+    },
+    {
+        "prefectureName": "大阪府",
+        "name": "四條畷市"
+    },
+    {
+        "prefectureName": "大阪府",
+        "name": "交野市"
+    },
+    {
+        "prefectureName": "大阪府",
+        "name": "大阪狭山市"
+    },
+    {
+        "prefectureName": "大阪府",
+        "name": "阪南市"
+    },
+    {
+        "prefectureName": "大阪府",
+        "name": "島本町"
+    },
+    {
+        "prefectureName": "大阪府",
+        "name": "豊能町"
+    },
+    {
+        "prefectureName": "大阪府",
+        "name": "能勢町"
+    },
+    {
+        "prefectureName": "大阪府",
+        "name": "忠岡町"
+    },
+    {
+        "prefectureName": "大阪府",
+        "name": "熊取町"
+    },
+    {
+        "prefectureName": "大阪府",
+        "name": "田尻町"
+    },
+    {
+        "prefectureName": "大阪府",
+        "name": "岬町"
+    },
+    {
+        "prefectureName": "大阪府",
+        "name": "太子町"
+    },
+    {
+        "prefectureName": "大阪府",
+        "name": "河南町"
+    },
+    {
+        "prefectureName": "大阪府",
+        "name": "千早赤阪村"
+    },
+    {
+        "prefectureName": "兵庫県",
+        "name": "神戸市"
+    },
+    {
+        "prefectureName": "兵庫県",
+        "name": "神戸市東灘区"
+    },
+    {
+        "prefectureName": "兵庫県",
+        "name": "神戸市灘区"
+    },
+    {
+        "prefectureName": "兵庫県",
+        "name": "神戸市中央区"
+    },
+    {
+        "prefectureName": "兵庫県",
+        "name": "神戸市兵庫区"
+    },
+    {
+        "prefectureName": "兵庫県",
+        "name": "神戸市北区"
+    },
+    {
+        "prefectureName": "兵庫県",
+        "name": "神戸市長田区"
+    },
+    {
+        "prefectureName": "兵庫県",
+        "name": "神戸市須磨区"
+    },
+    {
+        "prefectureName": "兵庫県",
+        "name": "神戸市垂水区"
+    },
+    {
+        "prefectureName": "兵庫県",
+        "name": "神戸市西区"
+    },
+    {
+        "prefectureName": "兵庫県",
+        "name": "姫路市"
+    },
+    {
+        "prefectureName": "兵庫県",
+        "name": "尼崎市"
+    },
+    {
+        "prefectureName": "兵庫県",
+        "name": "明石市"
+    },
+    {
+        "prefectureName": "兵庫県",
+        "name": "西宮市"
+    },
+    {
+        "prefectureName": "兵庫県",
+        "name": "洲本市"
+    },
+    {
+        "prefectureName": "兵庫県",
+        "name": "芦屋市"
+    },
+    {
+        "prefectureName": "兵庫県",
+        "name": "伊丹市"
+    },
+    {
+        "prefectureName": "兵庫県",
+        "name": "相生市"
+    },
+    {
+        "prefectureName": "兵庫県",
+        "name": "豊岡市"
+    },
+    {
+        "prefectureName": "兵庫県",
+        "name": "加古川市"
+    },
+    {
+        "prefectureName": "兵庫県",
+        "name": "赤穂市"
+    },
+    {
+        "prefectureName": "兵庫県",
+        "name": "西脇市"
+    },
+    {
+        "prefectureName": "兵庫県",
+        "name": "宝塚市"
+    },
+    {
+        "prefectureName": "兵庫県",
+        "name": "三木市"
+    },
+    {
+        "prefectureName": "兵庫県",
+        "name": "高砂市"
+    },
+    {
+        "prefectureName": "兵庫県",
+        "name": "川西市"
+    },
+    {
+        "prefectureName": "兵庫県",
+        "name": "小野市"
+    },
+    {
+        "prefectureName": "兵庫県",
+        "name": "三田市"
+    },
+    {
+        "prefectureName": "兵庫県",
+        "name": "加西市"
+    },
+    {
+        "prefectureName": "兵庫県",
+        "name": "丹波篠山市"
+    },
+    {
+        "prefectureName": "兵庫県",
+        "name": "養父市"
+    },
+    {
+        "prefectureName": "兵庫県",
+        "name": "丹波市"
+    },
+    {
+        "prefectureName": "兵庫県",
+        "name": "南あわじ市"
+    },
+    {
+        "prefectureName": "兵庫県",
+        "name": "朝来市"
+    },
+    {
+        "prefectureName": "兵庫県",
+        "name": "淡路市"
+    },
+    {
+        "prefectureName": "兵庫県",
+        "name": "宍粟市"
+    },
+    {
+        "prefectureName": "兵庫県",
+        "name": "加東市"
+    },
+    {
+        "prefectureName": "兵庫県",
+        "name": "たつの市"
+    },
+    {
+        "prefectureName": "兵庫県",
+        "name": "猪名川町"
+    },
+    {
+        "prefectureName": "兵庫県",
+        "name": "多可町"
+    },
+    {
+        "prefectureName": "兵庫県",
+        "name": "稲美町"
+    },
+    {
+        "prefectureName": "兵庫県",
+        "name": "播磨町"
+    },
+    {
+        "prefectureName": "兵庫県",
+        "name": "市川町"
+    },
+    {
+        "prefectureName": "兵庫県",
+        "name": "福崎町"
+    },
+    {
+        "prefectureName": "兵庫県",
+        "name": "神河町"
+    },
+    {
+        "prefectureName": "兵庫県",
+        "name": "太子町"
+    },
+    {
+        "prefectureName": "兵庫県",
+        "name": "上郡町"
+    },
+    {
+        "prefectureName": "兵庫県",
+        "name": "佐用町"
+    },
+    {
+        "prefectureName": "兵庫県",
+        "name": "香美町"
+    },
+    {
+        "prefectureName": "兵庫県",
+        "name": "新温泉町"
+    },
+    {
+        "prefectureName": "京都府",
+        "name": "京都市"
+    },
+    {
+        "prefectureName": "京都府",
+        "name": "京都市北区"
+    },
+    {
+        "prefectureName": "京都府",
+        "name": "京都市上京区"
+    },
+    {
+        "prefectureName": "京都府",
+        "name": "京都市左京区"
+    },
+    {
+        "prefectureName": "京都府",
+        "name": "京都市中京区"
+    },
+    {
+        "prefectureName": "京都府",
+        "name": "京都市東山区"
+    },
+    {
+        "prefectureName": "京都府",
+        "name": "京都市下京区"
+    },
+    {
+        "prefectureName": "京都府",
+        "name": "京都市南区"
+    },
+    {
+        "prefectureName": "京都府",
+        "name": "京都市右京区"
+    },
+    {
+        "prefectureName": "京都府",
+        "name": "京都市伏見区"
+    },
+    {
+        "prefectureName": "京都府",
+        "name": "京都市山科区"
+    },
+    {
+        "prefectureName": "京都府",
+        "name": "京都市西京区"
+    },
+    {
+        "prefectureName": "京都府",
+        "name": "福知山市"
+    },
+    {
+        "prefectureName": "京都府",
+        "name": "舞鶴市"
+    },
+    {
+        "prefectureName": "京都府",
+        "name": "綾部市"
+    },
+    {
+        "prefectureName": "京都府",
+        "name": "宇治市"
+    },
+    {
+        "prefectureName": "京都府",
+        "name": "宮津市"
+    },
+    {
+        "prefectureName": "京都府",
+        "name": "亀岡市"
+    },
+    {
+        "prefectureName": "京都府",
+        "name": "城陽市"
+    },
+    {
+        "prefectureName": "京都府",
+        "name": "向日市"
+    },
+    {
+        "prefectureName": "京都府",
+        "name": "長岡京市"
+    },
+    {
+        "prefectureName": "京都府",
+        "name": "八幡市"
+    },
+    {
+        "prefectureName": "京都府",
+        "name": "京田辺市"
+    },
+    {
+        "prefectureName": "京都府",
+        "name": "京丹後市"
+    },
+    {
+        "prefectureName": "京都府",
+        "name": "南丹市"
+    },
+    {
+        "prefectureName": "京都府",
+        "name": "木津川市"
+    },
+    {
+        "prefectureName": "京都府",
+        "name": "大山崎町"
+    },
+    {
+        "prefectureName": "京都府",
+        "name": "久御山町"
+    },
+    {
+        "prefectureName": "京都府",
+        "name": "井手町"
+    },
+    {
+        "prefectureName": "京都府",
+        "name": "宇治田原町"
+    },
+    {
+        "prefectureName": "京都府",
+        "name": "笠置町"
+    },
+    {
+        "prefectureName": "京都府",
+        "name": "和束町"
+    },
+    {
+        "prefectureName": "京都府",
+        "name": "精華町"
+    },
+    {
+        "prefectureName": "京都府",
+        "name": "南山城村"
+    },
+    {
+        "prefectureName": "京都府",
+        "name": "京丹波町"
+    },
+    {
+        "prefectureName": "京都府",
+        "name": "伊根町"
+    },
+    {
+        "prefectureName": "京都府",
+        "name": "与謝野町"
+    },
+    {
+        "prefectureName": "滋賀県",
+        "name": "大津市"
+    },
+    {
+        "prefectureName": "滋賀県",
+        "name": "彦根市"
+    },
+    {
+        "prefectureName": "滋賀県",
+        "name": "長浜市"
+    },
+    {
+        "prefectureName": "滋賀県",
+        "name": "近江八幡市"
+    },
+    {
+        "prefectureName": "滋賀県",
+        "name": "草津市"
+    },
+    {
+        "prefectureName": "滋賀県",
+        "name": "守山市"
+    },
+    {
+        "prefectureName": "滋賀県",
+        "name": "栗東市"
+    },
+    {
+        "prefectureName": "滋賀県",
+        "name": "甲賀市"
+    },
+    {
+        "prefectureName": "滋賀県",
+        "name": "野洲市"
+    },
+    {
+        "prefectureName": "滋賀県",
+        "name": "湖南市"
+    },
+    {
+        "prefectureName": "滋賀県",
+        "name": "高島市"
+    },
+    {
+        "prefectureName": "滋賀県",
+        "name": "東近江市"
+    },
+    {
+        "prefectureName": "滋賀県",
+        "name": "米原市"
+    },
+    {
+        "prefectureName": "滋賀県",
+        "name": "日野町"
+    },
+    {
+        "prefectureName": "滋賀県",
+        "name": "竜王町"
+    },
+    {
+        "prefectureName": "滋賀県",
+        "name": "愛荘町"
+    },
+    {
+        "prefectureName": "滋賀県",
+        "name": "豊郷町"
+    },
+    {
+        "prefectureName": "滋賀県",
+        "name": "甲良町"
+    },
+    {
+        "prefectureName": "滋賀県",
+        "name": "多賀町"
+    },
+    {
+        "prefectureName": "奈良県",
+        "name": "奈良市"
+    },
+    {
+        "prefectureName": "奈良県",
+        "name": "大和高田市"
+    },
+    {
+        "prefectureName": "奈良県",
+        "name": "大和郡山市"
+    },
+    {
+        "prefectureName": "奈良県",
+        "name": "天理市"
+    },
+    {
+        "prefectureName": "奈良県",
+        "name": "橿原市"
+    },
+    {
+        "prefectureName": "奈良県",
+        "name": "桜井市"
+    },
+    {
+        "prefectureName": "奈良県",
+        "name": "五條市"
+    },
+    {
+        "prefectureName": "奈良県",
+        "name": "御所市"
+    },
+    {
+        "prefectureName": "奈良県",
+        "name": "生駒市"
+    },
+    {
+        "prefectureName": "奈良県",
+        "name": "香芝市"
+    },
+    {
+        "prefectureName": "奈良県",
+        "name": "葛城市"
+    },
+    {
+        "prefectureName": "奈良県",
+        "name": "宇陀市"
+    },
+    {
+        "prefectureName": "奈良県",
+        "name": "山添村"
+    },
+    {
+        "prefectureName": "奈良県",
+        "name": "平群町"
+    },
+    {
+        "prefectureName": "奈良県",
+        "name": "三郷町"
+    },
+    {
+        "prefectureName": "奈良県",
+        "name": "斑鳩町"
+    },
+    {
+        "prefectureName": "奈良県",
+        "name": "安堵町"
+    },
+    {
+        "prefectureName": "奈良県",
+        "name": "川西町"
+    },
+    {
+        "prefectureName": "奈良県",
+        "name": "三宅町"
+    },
+    {
+        "prefectureName": "奈良県",
+        "name": "田原本町"
+    },
+    {
+        "prefectureName": "奈良県",
+        "name": "曽爾村"
+    },
+    {
+        "prefectureName": "奈良県",
+        "name": "御杖村"
+    },
+    {
+        "prefectureName": "奈良県",
+        "name": "高取町"
+    },
+    {
+        "prefectureName": "奈良県",
+        "name": "明日香村"
+    },
+    {
+        "prefectureName": "奈良県",
+        "name": "上牧町"
+    },
+    {
+        "prefectureName": "奈良県",
+        "name": "王寺町"
+    },
+    {
+        "prefectureName": "奈良県",
+        "name": "広陵町"
+    },
+    {
+        "prefectureName": "奈良県",
+        "name": "河合町"
+    },
+    {
+        "prefectureName": "奈良県",
+        "name": "吉野町"
+    },
+    {
+        "prefectureName": "奈良県",
+        "name": "大淀町"
+    },
+    {
+        "prefectureName": "奈良県",
+        "name": "下市町"
+    },
+    {
+        "prefectureName": "奈良県",
+        "name": "黒滝村"
+    },
+    {
+        "prefectureName": "奈良県",
+        "name": "天川村"
+    },
+    {
+        "prefectureName": "奈良県",
+        "name": "野迫川村"
+    },
+    {
+        "prefectureName": "奈良県",
+        "name": "十津川村"
+    },
+    {
+        "prefectureName": "奈良県",
+        "name": "下北山村"
+    },
+    {
+        "prefectureName": "奈良県",
+        "name": "上北山村"
+    },
+    {
+        "prefectureName": "奈良県",
+        "name": "川上村"
+    },
+    {
+        "prefectureName": "奈良県",
+        "name": "東吉野村"
+    },
+    {
+        "prefectureName": "和歌山県",
+        "name": "和歌山市"
+    },
+    {
+        "prefectureName": "和歌山県",
+        "name": "海南市"
+    },
+    {
+        "prefectureName": "和歌山県",
+        "name": "橋本市"
+    },
+    {
+        "prefectureName": "和歌山県",
+        "name": "有田市"
+    },
+    {
+        "prefectureName": "和歌山県",
+        "name": "御坊市"
+    },
+    {
+        "prefectureName": "和歌山県",
+        "name": "田辺市"
+    },
+    {
+        "prefectureName": "和歌山県",
+        "name": "新宮市"
+    },
+    {
+        "prefectureName": "和歌山県",
+        "name": "紀の川市"
+    },
+    {
+        "prefectureName": "和歌山県",
+        "name": "岩出市"
+    },
+    {
+        "prefectureName": "和歌山県",
+        "name": "紀美野町"
+    },
+    {
+        "prefectureName": "和歌山県",
+        "name": "かつらぎ町"
+    },
+    {
+        "prefectureName": "和歌山県",
+        "name": "九度山町"
+    },
+    {
+        "prefectureName": "和歌山県",
+        "name": "高野町"
+    },
+    {
+        "prefectureName": "和歌山県",
+        "name": "湯浅町"
+    },
+    {
+        "prefectureName": "和歌山県",
+        "name": "広川町"
+    },
+    {
+        "prefectureName": "和歌山県",
+        "name": "有田川町"
+    },
+    {
+        "prefectureName": "和歌山県",
+        "name": "美浜町"
+    },
+    {
+        "prefectureName": "和歌山県",
+        "name": "日高町"
+    },
+    {
+        "prefectureName": "和歌山県",
+        "name": "由良町"
+    },
+    {
+        "prefectureName": "和歌山県",
+        "name": "印南町"
+    },
+    {
+        "prefectureName": "和歌山県",
+        "name": "みなべ町"
+    },
+    {
+        "prefectureName": "和歌山県",
+        "name": "日高川町"
+    },
+    {
+        "prefectureName": "和歌山県",
+        "name": "白浜町"
+    },
+    {
+        "prefectureName": "和歌山県",
+        "name": "上富田町"
+    },
+    {
+        "prefectureName": "和歌山県",
+        "name": "すさみ町"
+    },
+    {
+        "prefectureName": "和歌山県",
+        "name": "那智勝浦町"
+    },
+    {
+        "prefectureName": "和歌山県",
+        "name": "太地町"
+    },
+    {
+        "prefectureName": "和歌山県",
+        "name": "古座川町"
+    },
+    {
+        "prefectureName": "和歌山県",
+        "name": "北山村"
+    },
+    {
+        "prefectureName": "和歌山県",
+        "name": "串本町"
+    }
+]

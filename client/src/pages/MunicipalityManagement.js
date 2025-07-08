@@ -11,9 +11,9 @@ const MunicipalityManagement = () => {
     const [editingMunicipality, setEditingMunicipality] = useState(null);
     const [formData, setFormData] = useState({
         name: '',
-        prefecture: '',
+        prefectureName: '',
         region: '',
-        population: '',
+        populationCategory: '',
         notes: ''
     });
 
@@ -21,14 +21,13 @@ const MunicipalityManagement = () => {
     const columns = [
         { key: 'id', label: 'ID', sortable: true, className: 'text-center' },
         { key: 'name', label: '市区町村名', sortable: true },
-        { key: 'prefecture', label: '都道府県', sortable: true },
+        { key: 'prefectureName', label: '都道府県', sortable: true },
         { key: 'region', label: '地域', sortable: true },
         {
-            key: 'population',
-            label: '人口',
+            key: 'populationCategory',
+            label: '人口規模',
             sortable: true,
-            className: 'text-right',
-            render: (value) => value ? value.toLocaleString() : '-'
+            className: 'text-center'
         },
         {
             key: 'createdAt',
@@ -47,7 +46,7 @@ const MunicipalityManagement = () => {
     // フィルタ定義
     const filters = [
         {
-            key: 'prefecture',
+            key: 'prefectureName',
             label: '都道府県',
             options: [
                 { value: '大阪府', label: '大阪府' },
@@ -90,9 +89,9 @@ const MunicipalityManagement = () => {
     const resetForm = () => {
         setFormData({
             name: '',
-            prefecture: '',
+            prefectureName: '',
             region: '',
-            population: '',
+            populationCategory: '',
             notes: ''
         });
         setEditingMunicipality(null);
@@ -110,9 +109,9 @@ const MunicipalityManagement = () => {
         setEditingMunicipality(municipality);
         setFormData({
             name: municipality.name || '',
-            prefecture: municipality.prefecture || '',
+            prefectureName: municipality.prefectureName || '',
             region: municipality.region || '',
-            population: municipality.population || '',
+            populationCategory: municipality.populationCategory || '',
             notes: municipality.notes || ''
         });
         setShowForm(true);
@@ -142,7 +141,7 @@ const MunicipalityManagement = () => {
             alert('市区町村名を入力してください。');
             return;
         }
-        if (!formData.prefecture.trim()) {
+        if (!formData.prefectureName.trim()) {
             alert('都道府県を選択してください。');
             return;
         }
@@ -154,7 +153,7 @@ const MunicipalityManagement = () => {
         try {
             const submitData = {
                 ...formData,
-                population: formData.population ? parseInt(formData.population, 10) : null
+                populationCategory: formData.populationCategory || null
             };
 
             if (editingMunicipality) {
@@ -223,11 +222,11 @@ const MunicipalityManagement = () => {
                             </div>
 
                             <div className="form-group">
-                                <label htmlFor="prefecture">都道府県 *</label>
+                                <label htmlFor="prefectureName">都道府県 *</label>
                                 <select
-                                    id="prefecture"
-                                    name="prefecture"
-                                    value={formData.prefecture}
+                                    id="prefectureName"
+                                    name="prefectureName"
+                                    value={formData.prefectureName}
                                     onChange={handleInputChange}
                                     required
                                 >
@@ -256,16 +255,19 @@ const MunicipalityManagement = () => {
                             </div>
 
                             <div className="form-group">
-                                <label htmlFor="population">人口</label>
-                                <input
-                                    type="number"
-                                    id="population"
-                                    name="population"
-                                    value={formData.population}
+                                <label htmlFor="populationCategory">人口規模</label>
+                                <select
+                                    id="populationCategory"
+                                    name="populationCategory"
+                                    value={formData.populationCategory}
                                     onChange={handleInputChange}
-                                    placeholder="例: 2700000"
-                                    min="0"
-                                />
+                                >
+                                    <option value="">選択してください</option>
+                                    <option value="大都市">大都市</option>
+                                    <option value="中核市">中核市</option>
+                                    <option value="地方都市">地方都市</option>
+                                    <option value="町村">町村</option>
+                                </select>
                             </div>
 
                             <div className="form-group">

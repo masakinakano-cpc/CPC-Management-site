@@ -4,7 +4,7 @@ import { toast } from 'react-toastify';
 // ベースURL設定
 const BASE_URL = process.env.NODE_ENV === 'production'
     ? '/api'
-    : 'http://localhost:5000/api';
+    : 'http://localhost:5001/api';
 
 // axios インスタンス作成
 const api = axios.create({
@@ -63,6 +63,7 @@ export const eventApi = {
 
 export const municipalityApi = {
     getAll: (params = {}) => api.get('/municipalities', { params }),
+    getAllForSelect: () => api.get('/municipalities', { params: { limit: 10000 } }), // 全件取得用
     getById: (id) => api.get(`/municipalities/${id}`),
     create: (data) => api.post('/municipalities', data),
     update: (id, data) => api.put(`/municipalities/${id}`, data),
@@ -72,6 +73,7 @@ export const municipalityApi = {
 
 export const developmentAreaApi = {
     getAll: (params = {}) => api.get('/development-areas', { params }),
+    getAllForSelect: () => api.get('/development-areas', { params: { limit: 10000 } }), // 全件取得用
     getById: (id) => api.get(`/development-areas/${id}`),
     create: (data) => api.post('/development-areas', data),
     update: (id, data) => api.put(`/development-areas/${id}`, data),
