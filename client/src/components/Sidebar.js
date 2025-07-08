@@ -38,6 +38,7 @@ const Sidebar = () => {
             icon: <FaCalendarAlt />,
             items: [
                 { title: '開催予定一覧', path: '/events' },
+                { title: 'マルチビュー', path: '/multi-view' },
                 { title: '新規開催予定', path: '/events/new' },
                 { title: 'カレンダー表示', path: '/calendar' }
             ]

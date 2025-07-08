@@ -134,7 +134,9 @@ cron.schedule('0 1 * * *', async () => {
     try {
         console.log('Monthly reminder and candidate generation started...');
         const statusUpdateService = require('./services/statusUpdateService');
+        const notificationService = require('./services/notificationService');
         await statusUpdateService.generateNextYearCandidates();
+        await notificationService.checkThreeMonthReminders();
         console.log('Monthly reminder and candidate generation completed.');
     } catch (error) {
         console.error('Error in monthly reminder and candidate generation:', error);

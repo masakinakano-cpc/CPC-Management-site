@@ -11,6 +11,7 @@ import EventList from './pages/EventList';
 import EventForm from './pages/EventForm';
 import EventDetail from './pages/EventDetail';
 import EventCalendar from './pages/EventCalendar';
+import EventMultiView from './pages/EventMultiView';
 import MunicipalityManagement from './pages/MunicipalityManagement';
 import DevelopmentAreaManagement from './pages/DevelopmentAreaManagement';
 import VenueHistoryManagement from './pages/VenueHistoryManagement';
@@ -36,6 +37,9 @@ function App() {
                             <Route path="/events/new" element={<EventForm />} />
                             <Route path="/events/:id" element={<EventDetail />} />
                             <Route path="/events/:id/edit" element={<EventForm />} />
+
+                            {/* マルチビュー */}
+                            <Route path="/multi-view" element={<EventMultiView />} />
 
                             {/* カレンダー */}
                             <Route path="/calendar" element={<EventCalendar />} />
