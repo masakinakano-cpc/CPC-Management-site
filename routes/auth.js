@@ -241,6 +241,42 @@ router.put('/users/:id', authenticateToken, requireAdmin, async (req, res) => {
     }
 });
 
+// ユーザー削除（管理者のみ）
+router.delete('/users/:id', authenticateToken, requireAdmin, async (req, res) => {
+    try {
+        const { id } = req.params;
+
+        // 自分自身を削除できないようにする
+        if (parseInt(id) === req.user.id) {
+            return res.status(400).json({
+                error: 'Cannot delete yourself',
+                message: '自分自身を削除することはできません'
+            });
+        }
+
+        const user = await User.findByPk(id);
+        if (!user) {
+            return res.status(404).json({
+                error: 'User not found',
+                message: 'ユーザーが見つかりません'
+            });
+        }
+
+        await user.destroy();
+
+        res.json({
+            message: 'User deleted successfully',
+            message: 'ユーザーが正常に削除されました'
+        });
+    } catch (error) {
+        console.error('Delete user error:', error);
+        res.status(500).json({
+            error: 'Failed to delete user',
+            message: 'ユーザー削除に失敗しました'
+        });
+    }
+});
+
 // ログアウト（クライアント側でトークンを削除）
 router.post('/logout', authenticateToken, (req, res) => {
     res.json({

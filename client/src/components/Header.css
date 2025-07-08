@@ -1,7 +1,7 @@
 /* Header.css */
 .header {
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-    color: white;
+    background: linear-gradient(135deg, var(--header-primary, #00ff88) 0%, var(--header-secondary, #00cc6a) 100%);
+    color: var(--header-text, white);
     position: sticky;
     top: 0;
     z-index: 1000;

@@ -1,23 +1,25 @@
-const { User, connectDatabase } = require('../models');
+const { User } = require('../models');
+const bcrypt = require('bcryptjs');
 
-const createAdminUser = async () => {
+async function createAdminUser() {
     try {
         // データベース接続
+        const { connectDatabase } = require('../models');
         await connectDatabase();
 
         // 管理者ユーザーの情報
         const adminUser = {
             username: 'admin',
-            email: 'admin@cpc-management.com',
+            email: 'admin@cpc.com',
             password: 'admin123',
             firstName: '管理者',
-            lastName: 'ユーザー',
+            lastName: 'CPC',
             role: 'admin',
             isActive: true
         };
 
-        // 既存の管理者ユーザーをチェック
-        const existingAdmin = await User.findOne({
+        // 既存のユーザーをチェック
+        const existingUser = await User.findOne({
             where: {
                 [require('sequelize').Op.or]: [
                     { username: adminUser.username },
@@ -26,32 +28,41 @@ const createAdminUser = async () => {
             }
         });
 
-        if (existingAdmin) {
-            console.log('管理者ユーザーは既に存在します。');
-            console.log('ユーザー名:', existingAdmin.username);
-            console.log('メールアドレス:', existingAdmin.email);
+        if (existingUser) {
+            console.log('管理者ユーザーは既に存在します');
+            console.log('ユーザー名:', existingUser.username);
+            console.log('メール:', existingUser.email);
+            console.log('役割:', existingUser.role);
             return;
         }
 
-        // 管理者ユーザーを作成
-        const user = await User.create(adminUser);
+        // パスワードハッシュ化
+        const hashedPassword = await bcrypt.hash(adminUser.password, 12);
 
-        console.log('✅ 管理者ユーザーが正常に作成されました！');
+        // ユーザー作成
+        const user = await User.create({
+            ...adminUser,
+            password: hashedPassword
+        });
+
+        console.log('✅ 管理者ユーザーが正常に作成されました');
         console.log('ユーザー名:', user.username);
-        console.log('メールアドレス:', user.email);
-        console.log('ロール:', user.role);
-        console.log('');
-        console.log('⚠️  セキュリティのため、本番環境では必ずパスワードを変更してください。');
+        console.log('メール:', user.email);
+        console.log('役割:', user.role);
+        console.log('ID:', user.id);
+
+        // データベース接続を閉じる
+        await require('../models').sequelize.close();
 
     } catch (error) {
-        console.error('❌ 管理者ユーザーの作成に失敗しました:', error);
-    } finally {
-        // データベース接続を閉じる
-        const { sequelize } = require('../models');
-        await sequelize.close();
-        process.exit(0);
+        console.error('❌ 管理者ユーザー作成エラー:', error);
+        process.exit(1);
     }
-};
+}
 
 // スクリプト実行
-createAdminUser();
+if (require.main === module) {
+    createAdminUser();
+}
+
+module.exports = createAdminUser;

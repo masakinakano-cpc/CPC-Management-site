@@ -9,7 +9,10 @@ import {
     FaChartBar,
     FaPlus,
     FaChevronDown,
-    FaChevronRight
+    FaChevronRight,
+    FaEnvelope,
+    FaCog,
+    FaUsers
 } from 'react-icons/fa';
 import './Sidebar.css';
 
@@ -59,6 +62,24 @@ const Sidebar = () => {
             title: 'レポート・分析',
             icon: <FaChartBar />,
             path: '/reports'
+        },
+        {
+            key: 'notifications',
+            title: '通知管理',
+            icon: <FaEnvelope />,
+            path: '/notifications'
+        },
+        {
+            key: 'users',
+            title: 'ユーザー管理',
+            icon: <FaUsers />,
+            path: '/users'
+        },
+        {
+            key: 'settings',
+            title: '設定',
+            icon: <FaCog />,
+            path: '/settings'
         }
     ];
 

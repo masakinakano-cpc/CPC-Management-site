@@ -1,17 +1,37 @@
 import { toast } from 'react-toastify';
 
-const API_BASE_URL = process.env.REACT_APP_API_URL || 'http://localhost:5001/api';
+const API_BASE_URL = process.env.REACT_APP_API_URL || 'http://localhost:5003/api';
+
+// 認証トークンを取得する関数
+const getAuthToken = () => {
+    return localStorage.getItem('token');
+};
 
 // 共通のAPI呼び出し関数
 const apiCall = async (endpoint, options = {}) => {
     try {
+        const token = getAuthToken();
+        const headers = {
+            'Content-Type': 'application/json',
+            ...options.headers,
+        };
+
+        // トークンがある場合は認証ヘッダーを追加
+        if (token) {
+            headers['Authorization'] = `Bearer ${token}`;
+        }
+
         const response = await fetch(`${API_BASE_URL}${endpoint}`, {
-            headers: {
-                'Content-Type': 'application/json',
-                ...options.headers,
-            },
+            headers,
             ...options,
         });
+
+        // 401エラーの場合は認証エラーとして処理
+        if (response.status === 401) {
+            localStorage.removeItem('token');
+            window.location.href = '/login';
+            throw new Error('認証が必要です');
+        }
 
         if (!response.ok) {
             throw new Error(`HTTP error! status: ${response.status}`);
@@ -20,7 +40,9 @@ const apiCall = async (endpoint, options = {}) => {
         return await response.json();
     } catch (error) {
         console.error('API call failed:', error);
-        toast.error(`API呼び出しエラー: ${error.message}`);
+        if (error.message !== '認証が必要です') {
+            toast.error(`API呼び出しエラー: ${error.message}`);
+        }
         throw error;
     }
 };
@@ -172,6 +194,38 @@ export const googleDriveAPI = {
     getSummaryData: () => apiCall('/google-drive/summary-data'),
 };
 
+// 認証・ユーザー管理関連API
+export const authAPI = {
+    // ログイン
+    login: (credentials) => apiCall('/auth/login', {
+        method: 'POST',
+        body: JSON.stringify(credentials),
+    }),
+
+    // ユーザー登録
+    register: (userData) => apiCall('/auth/register', {
+        method: 'POST',
+        body: JSON.stringify(userData),
+    }),
+
+    // 現在のユーザー情報取得
+    getCurrentUser: () => apiCall('/auth/me'),
+
+    // ユーザー一覧取得（管理者のみ）
+    getUsers: () => apiCall('/auth/users'),
+
+    // ユーザー更新（管理者のみ）
+    updateUser: (id, userData) => apiCall(`/auth/users/${id}`, {
+        method: 'PUT',
+        body: JSON.stringify(userData),
+    }),
+
+    // ユーザー削除（管理者のみ）
+    deleteUser: (id) => apiCall(`/auth/users/${id}`, {
+        method: 'DELETE',
+    }),
+};
+
 // エクスポート関連API
 export const exportAPI = {
     // CSVエクスポート
@@ -189,5 +243,6 @@ export default {
     schoolAPI,
     venueHistoryAPI,
     googleDriveAPI,
+    authAPI,
     exportAPI,
 };

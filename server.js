@@ -19,6 +19,7 @@ const schoolRoutes = require('./routes/schools');
 const dashboardRoutes = require('./routes/dashboard');
 const googleDriveRoutes = require('./routes/googleDrive');
 const authRoutes = require('./routes/auth');
+const exportRoutes = require('./routes/export');
 
 // アプリケーションの初期化
 const app = express();
@@ -64,6 +65,8 @@ app.use('/api/venue-histories', venueHistoryRoutes);
 app.use('/api/schools', schoolRoutes);
 app.use('/api/dashboard', dashboardRoutes);
 app.use('/api/google-drive', googleDriveRoutes);
+app.use('/api/notifications', require('./routes/notifications'));
+app.use('/api/export', exportRoutes);
 
 // ヘルスチェック
 app.get('/api/health', (req, res) => {
@@ -138,9 +141,9 @@ cron.schedule('0 1 * * *', async () => {
     try {
         console.log('Monthly reminder and candidate generation started...');
         const statusUpdateService = require('./services/statusUpdateService');
-        const notificationService = require('./services/notificationService');
+        const emailService = require('./services/emailService');
         await statusUpdateService.generateNextYearCandidates();
-        await notificationService.checkThreeMonthReminders();
+        await emailService.sendThreeMonthReminder();
         console.log('Monthly reminder and candidate generation completed.');
     } catch (error) {
         console.error('Error in monthly reminder and candidate generation:', error);
@@ -151,8 +154,9 @@ cron.schedule('0 1 * * *', async () => {
 cron.schedule('0 9 * * *', async () => {
     try {
         console.log('Daily notification check started...');
-        const notificationService = require('./services/notificationService');
-        await notificationService.checkUpcomingFlyerDistribution();
+        const emailService = require('./services/emailService');
+        await emailService.sendFlyerDistributionNotification();
+        await emailService.sendOverdueNotification();
         console.log('Daily notification check completed.');
     } catch (error) {
         console.error('Error in daily notification check:', error);
@@ -181,6 +185,33 @@ cron.schedule('0 2 1 * *', async () => {
         console.log('Google Drive monthly report generation completed.');
     } catch (error) {
         console.error('Error in Google Drive monthly report generation:', error);
+    }
+});
+
+// 自動化タスク（データベース最適化） - 毎週日曜日午前3時に実行
+cron.schedule('0 3 * * 0', async () => {
+    try {
+        console.log('Database optimization started...');
+        const databaseOptimizationService = require('./services/databaseOptimizationService');
+        const optimizationService = new databaseOptimizationService();
+        await optimizationService.performOptimization();
+        console.log('Database optimization completed.');
+    } catch (error) {
+        console.error('Error in database optimization:', error);
+    }
+});
+
+// 自動化タスク（Googleドライブ同期） - 毎日午前4時に実行
+cron.schedule('0 4 * * *', async () => {
+    try {
+        console.log('Google Drive sync started...');
+        const GoogleDriveSyncService = require('./services/googleDriveSyncService');
+        const syncService = new GoogleDriveSyncService();
+        await syncService.initialize();
+        await syncService.performFullSync();
+        console.log('Google Drive sync completed.');
+    } catch (error) {
+        console.error('Error in Google Drive sync:', error);
     }
 });
 

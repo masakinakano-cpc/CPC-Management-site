@@ -21,7 +21,7 @@ CPC（Community Partnership Center）の開催予定とデータを管理するW
 - **月次レポート**: PDF・Excel形式でのレポート自動生成
 
 ### 🔄 自動化機能
-- **通知システム**: チラシ配布日通知、期日過ぎ通知、リマインダー
+- **メール通知システム**: チラシ配布日通知、期日過ぎ通知、3ヶ月前リマインダー
 - **Googleドライブ連携**: 地域別集計データの自動アップロード
 - **cronジョブ**: 月次レポート自動生成、ステータス自動更新
 
@@ -46,7 +46,7 @@ CPC（Community Partnership Center）の開催予定とデータを管理するW
 ### 外部連携
 - **Google Drive API**: ファイル管理・共有
 - **ExcelJS**: Excelレポート生成
-- **Nodemailer**: メール通知
+- **Nodemailer**: メール通知システム
 
 ## 📋 システム要件
 
@@ -143,6 +143,12 @@ Gmail使用の場合：
 2. アプリパスワードを生成
 3. `.env`ファイルに設定
 
+**通知機能の種類：**
+- **チラシ配布通知**: 1週間以内にチラシ配布予定のイベントを管理者に通知
+- **期日過ぎ通知**: 開催予定日が過ぎているイベントを管理者に通知
+- **3ヶ月前リマインダー**: 3ヶ月後に開催予定のイベントを管理者に通知
+- **カスタム通知**: 管理者が任意のメッセージを指定ユーザーに送信
+
 ## 📖 使用方法
 
 ### 基本操作
@@ -152,6 +158,7 @@ Gmail使用の場合：
 3. **マルチビュー**: `/multi-view` - 異なる形式でのデータ表示
 4. **カレンダー**: `/calendar` - カレンダー形式での予定確認
 5. **マスタ管理**: `/masters` - 各種マスタデータの管理
+6. **通知管理**: `/notifications` - メール通知の設定と管理
 
 ### API エンドポイント
 
@@ -170,6 +177,14 @@ Gmail使用の場合：
 - `GET /api/google-drive/status` - 連携状態確認
 - `POST /api/google-drive/generate-report` - 手動レポート生成
 - `GET /api/google-drive/summary-data` - 集計データ取得
+
+#### 通知管理
+- `GET /api/notifications/settings` - 通知設定取得
+- `POST /api/notifications/flyer-distribution` - チラシ配布通知実行
+- `POST /api/notifications/overdue` - 期日過ぎ通知実行
+- `POST /api/notifications/three-month-reminder` - 3ヶ月前リマインダー実行
+- `POST /api/notifications/custom` - カスタム通知送信
+- `POST /api/notifications/test` - テストメール送信
 
 ### データ管理
 
