@@ -1,0 +1,321 @@
+/* Sidebar.css */
+.sidebar {
+    width: 250px;
+    background: linear-gradient(180deg, #2c3e50 0%, #34495e 100%);
+    color: white;
+    position: fixed;
+    top: 70px;
+    left: 0;
+    height: calc(100vh - 70px);
+    overflow-y: auto;
+    z-index: 100;
+    box-shadow: 2px 0 10px rgba(0, 0, 0, 0.15);
+    display: flex;
+    flex-direction: column;
+}
+
+.sidebar-header {
+    padding: 20px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    background: rgba(0, 0, 0, 0.1);
+}
+
+.sidebar-header h3 {
+    margin: 0;
+    font-size: 16px;
+    font-weight: 600;
+    color: #ecf0f1;
+    text-align: center;
+    letter-spacing: 0.5px;
+}
+
+.sidebar-nav {
+    flex: 1;
+    padding: 20px 0;
+}
+
+.menu-item-group {
+    margin-bottom: 8px;
+}
+
+.menu-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 12px 20px;
+    color: #bdc3c7;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 500;
+    border: none;
+    background: none;
+    width: 100%;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.menu-item::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.05), transparent);
+    transition: left 0.5s;
+}
+
+.menu-item:hover::before {
+    left: 100%;
+}
+
+.menu-item:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+    color: #ecf0f1;
+    transform: translateX(4px);
+}
+
+.menu-item.active {
+    background-color: rgba(52, 152, 219, 0.3);
+    color: #3498db;
+    border-right: 4px solid #3498db;
+}
+
+.menu-item.active::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 4px;
+    background: linear-gradient(180deg, #3498db, #2980b9);
+}
+
+.menu-item.expandable {
+    justify-content: space-between;
+}
+
+.menu-icon {
+    font-size: 16px;
+    min-width: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.menu-title {
+    flex: 1;
+    text-align: left;
+}
+
+.expand-icon {
+    font-size: 12px;
+    transition: transform 0.3s ease;
+}
+
+.menu-item.expandable:hover .expand-icon {
+    transform: scale(1.2);
+}
+
+.submenu {
+    background-color: rgba(0, 0, 0, 0.2);
+    border-left: 2px solid rgba(52, 152, 219, 0.3);
+    margin-left: 20px;
+    animation: slideDown 0.3s ease;
+}
+
+@keyframes slideDown {
+    from {
+        opacity: 0;
+        max-height: 0;
+    }
+
+    to {
+        opacity: 1;
+        max-height: 300px;
+    }
+}
+
+.submenu-item {
+    display: block;
+    padding: 10px 20px 10px 40px;
+    color: #95a5a6;
+    text-decoration: none;
+    font-size: 13px;
+    font-weight: 400;
+    transition: all 0.3s ease;
+    position: relative;
+    border-left: 2px solid transparent;
+}
+
+.submenu-item:hover {
+    color: #ecf0f1;
+    background-color: rgba(255, 255, 255, 0.05);
+    border-left-color: #3498db;
+    transform: translateX(4px);
+}
+
+.submenu-item.active {
+    color: #3498db;
+    background-color: rgba(52, 152, 219, 0.2);
+    border-left-color: #3498db;
+    font-weight: 500;
+}
+
+.submenu-item::before {
+    content: '•';
+    position: absolute;
+    left: 20px;
+    color: #7f8c8d;
+    font-size: 16px;
+}
+
+.submenu-item.active::before {
+    color: #3498db;
+}
+
+.sidebar-footer {
+    padding: 20px;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    background: rgba(0, 0, 0, 0.1);
+}
+
+.quick-action-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    width: 100%;
+    padding: 12px 16px;
+    background: linear-gradient(45deg, #e74c3c, #c0392b);
+    color: white;
+    text-decoration: none;
+    border-radius: 25px;
+    font-size: 14px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(231, 76, 60, 0.3);
+}
+
+.quick-action-button:hover {
+    background: linear-gradient(45deg, #c0392b, #a93226);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(231, 76, 60, 0.4);
+}
+
+.quick-action-button:active {
+    transform: translateY(0);
+}
+
+/* カスタムスクロールバー */
+.sidebar::-webkit-scrollbar {
+    width: 6px;
+}
+
+.sidebar::-webkit-scrollbar-track {
+    background: rgba(0, 0, 0, 0.1);
+}
+
+.sidebar::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0.3);
+    border-radius: 3px;
+}
+
+.sidebar::-webkit-scrollbar-thumb:hover {
+    background: rgba(255, 255, 255, 0.5);
+}
+
+/* レスポンシブ対応 */
+@media (max-width: 768px) {
+    .sidebar {
+        width: 200px;
+        transform: translateX(-100%);
+        transition: transform 0.3s ease;
+    }
+
+    .sidebar.mobile-open {
+        transform: translateX(0);
+    }
+
+    .sidebar-header {
+        padding: 15px;
+    }
+
+    .sidebar-header h3 {
+        font-size: 14px;
+    }
+
+    .menu-item {
+        padding: 10px 15px;
+        font-size: 13px;
+    }
+
+    .menu-icon {
+        font-size: 14px;
+        min-width: 18px;
+    }
+
+    .submenu-item {
+        padding: 8px 15px 8px 35px;
+        font-size: 12px;
+    }
+
+    .submenu-item::before {
+        left: 18px;
+        font-size: 14px;
+    }
+
+    .sidebar-footer {
+        padding: 15px;
+    }
+
+    .quick-action-button {
+        padding: 10px 12px;
+        font-size: 13px;
+    }
+}
+
+@media (max-width: 480px) {
+    .sidebar {
+        width: 180px;
+    }
+
+    .menu-item {
+        padding: 8px 12px;
+        font-size: 12px;
+    }
+
+    .menu-icon {
+        font-size: 12px;
+        min-width: 16px;
+    }
+
+    .submenu-item {
+        padding: 6px 12px 6px 30px;
+        font-size: 11px;
+    }
+
+    .submenu-item::before {
+        left: 15px;
+        font-size: 12px;
+    }
+
+    .quick-action-button {
+        padding: 8px 10px;
+        font-size: 12px;
+    }
+}
+
+/* アクセシビリティ対応 */
+.menu-item:focus,
+.submenu-item:focus {
+    outline: 2px solid #3498db;
+    outline-offset: 2px;
+}
+
+.menu-item:focus:not(:focus-visible),
+.submenu-item:focus:not(:focus-visible) {
+    outline: none;
+}
