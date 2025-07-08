@@ -21,7 +21,7 @@ const googleDriveRoutes = require('./routes/googleDrive');
 
 // アプリケーションの初期化
 const app = express();
-const PORT = process.env.PORT || 5000;
+const PORT = process.env.PORT || 5001;
 
 // セキュリティミドルウェア
 app.use(helmet());

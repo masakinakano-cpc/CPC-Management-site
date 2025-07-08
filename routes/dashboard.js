@@ -73,11 +73,11 @@ router.get('/stats', async (req, res) => {
             include: [
                 {
                     model: Municipality,
-                    as: 'municipality',
+                    as: 'Municipality',
                     attributes: ['name', 'prefectureName']
                 }
             ],
-            group: ['municipality.id'],
+            group: ['Municipality.id'],
             order: [[sequelize.fn('COUNT', sequelize.col('Event.id')), 'DESC']],
             limit: 10
         });
@@ -135,7 +135,7 @@ router.get('/notifications', async (req, res) => {
             include: [
                 {
                     model: Municipality,
-                    as: 'municipality',
+                    as: 'Municipality',
                     attributes: ['name', 'prefectureName']
                 }
             ],
@@ -152,7 +152,7 @@ router.get('/notifications', async (req, res) => {
             include: [
                 {
                     model: Municipality,
-                    as: 'municipality',
+                    as: 'Municipality',
                     attributes: ['name', 'prefectureName']
                 }
             ],
@@ -177,7 +177,7 @@ router.get('/recent-activity', async (req, res) => {
             include: [
                 {
                     model: Municipality,
-                    as: 'municipality',
+                    as: 'Municipality',
                     attributes: ['name', 'prefectureName']
                 }
             ],

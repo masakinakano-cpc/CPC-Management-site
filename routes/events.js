@@ -33,12 +33,12 @@ router.get('/', async (req, res) => {
             include: [
                 {
                     model: Municipality,
-                    as: 'municipality',
+                    as: 'Municipality',
                     attributes: ['id', 'name', 'prefectureName', 'region']
                 },
                 {
                     model: DevelopmentArea,
-                    as: 'developmentArea',
+                    as: 'DevelopmentArea',
                     attributes: ['id', 'name', 'code'],
                     required: false
                 }
@@ -71,11 +71,11 @@ router.get('/:id', async (req, res) => {
             include: [
                 {
                     model: Municipality,
-                    as: 'municipality'
+                    as: 'Municipality'
                 },
                 {
                     model: DevelopmentArea,
-                    as: 'developmentArea',
+                    as: 'DevelopmentArea',
                     required: false
                 }
             ]
@@ -101,7 +101,7 @@ router.post('/', async (req, res) => {
             include: [
                 {
                     model: Municipality,
-                    as: 'municipality'
+                    as: 'Municipality'
                 }
             ]
         });
@@ -132,7 +132,7 @@ router.put('/:id', async (req, res) => {
             include: [
                 {
                     model: Municipality,
-                    as: 'municipality'
+                    as: 'Municipality'
                 }
             ]
         });
