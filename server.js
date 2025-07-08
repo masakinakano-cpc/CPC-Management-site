@@ -18,6 +18,7 @@ const venueHistoryRoutes = require('./routes/venueHistories');
 const schoolRoutes = require('./routes/schools');
 const dashboardRoutes = require('./routes/dashboard');
 const googleDriveRoutes = require('./routes/googleDrive');
+const authRoutes = require('./routes/auth');
 
 // アプリケーションの初期化
 const app = express();
@@ -55,6 +56,7 @@ app.use(express.urlencoded({ extended: true, limit: '10mb' }));
 app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
 
 // API routes
+app.use('/api/auth', authRoutes);
 app.use('/api/events', eventRoutes);
 app.use('/api/municipalities', municipalityRoutes);
 app.use('/api/development-areas', developmentAreaRoutes);

@@ -14,6 +14,7 @@ const Municipality = require('./Municipality')(sequelize);
 const DevelopmentArea = require('./DevelopmentArea')(sequelize);
 const VenueHistory = require('./VenueHistory')(sequelize);
 const School = require('./School')(sequelize);
+const User = require('./User')(sequelize);
 
 // リレーションシップの定義
 Event.belongsTo(Municipality, { foreignKey: 'municipalityId', as: 'Municipality' });
@@ -27,6 +28,8 @@ VenueHistory.hasMany(Event, { foreignKey: 'venueHistoryId', as: 'events' });
 
 Event.belongsTo(School, { foreignKey: 'schoolId', as: 'School' });
 School.hasMany(Event, { foreignKey: 'schoolId', as: 'events' });
+
+// ユーザー関連のリレーションシップ（将来的にイベントとユーザーの関連付けなど）
 
 // データベース接続テスト
 const connectDatabase = async () => {
@@ -49,5 +52,6 @@ module.exports = {
     DevelopmentArea,
     VenueHistory,
     School,
+    User,
     connectDatabase
 };
