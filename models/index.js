@@ -38,7 +38,7 @@ const connectDatabase = async () => {
         console.log('データベース接続成功');
 
         // テーブル作成（開発用）
-        await sequelize.sync({ force: false });
+        await sequelize.sync({ force: true });
         console.log('データベーステーブル同期完了');
     } catch (error) {
         console.error('データベース接続エラー:', error);

@@ -26,6 +26,7 @@ const Login = () => {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
+        alert('submit!');
         console.log('📝 ログインフォーム送信:', { username, password: '***' });
         setLoading(true);
 
@@ -43,6 +44,7 @@ const Login = () => {
             }
         } catch (error) {
             console.error('💥 ログイン処理エラー:', error);
+            alert(error.message || 'ログインに失敗しました');
             toast.error('ログインに失敗しました');
         } finally {
             setLoading(false);

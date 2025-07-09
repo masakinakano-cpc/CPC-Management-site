@@ -58,6 +58,7 @@ export const AuthProvider = ({ children }) => {
     }, [checkAuthStatus]);
 
     const login = async (username, password) => {
+        alert('login関数呼び出し');
         console.log('🔐 ログイン試行:', username);
         try {
             const response = await authAPI.login({
@@ -73,6 +74,7 @@ export const AuthProvider = ({ children }) => {
             return { success: true };
         } catch (error) {
             console.error('❌ ログインエラー:', error);
+            alert(error.message || 'ログインに失敗しました');
             return {
                 success: false,
                 error: error.message || 'ログインに失敗しました'
