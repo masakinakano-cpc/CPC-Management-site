@@ -14,11 +14,14 @@ yarn-error.log*
 .env.development.local
 .env.test.local
 .env.production.local
+.env.*
 
 # Database
 database.sqlite
 *.db
 *.sqlite3
+backups/
+*.backup
 
 # Logs
 logs
@@ -71,7 +74,30 @@ uploads/
 config/google-service-account.json
 google-service-account.json
 *.json.key
+*.pem
+*.p12
+*.key
 
 # Generated reports
 *.xlsx
 *.csv
+
+# SSL certificates
+*.crt
+*.cert
+*.pem
+
+# API keys and secrets
+secrets/
+.secrets
+api-keys.txt
+secrets.json
+
+# Backup files
+*.bak
+*.backup
+backup_*
+
+# Local configuration
+config/local.json
+config/production.json
